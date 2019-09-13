@@ -52,3 +52,4 @@ nbdist/
 
 # End of https://www.gitignore.io/api/macos,netbeans,java-web
 >>>>>>> bc4458d7f7f68b6cdd80a609ce15b45413fcbbec
+/nbproject/
