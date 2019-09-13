@@ -7,14 +7,24 @@
     <head>
         <meta charset="UTF-8">
         <title>Login</title>
-        <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
+        <script src="https://code.jquery.com/jquery-2.1.4.min.js">
+        </script>
+        <script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js">
         </script>
         <script>
-            var inSignUp = false;
-            
+           
+            $(function(){
+                 $("#card").flip({
+                trigger: 'manual'
+              });
+            });
+           
             function signUpBtnAction()
             {
-                if(inSignUp == false)
+               
+                $("#card").flip(true);
+                
+                /* if(inSignUp == false)
                 {
                     $("#confirmText").show();
                     $("#confirmInput").show();
@@ -34,11 +44,15 @@
                     document.getElementById("signInText").innerHTML = "Sign in"
                     inSignUp = false
                 }
-                
+                */
             }
-            
+            function goSignInBtnAction()
+            {
+                $("#card").flip(false);
+            }
             function signBtnAction()
             {
+     
                 
                 if(inSignUp == false)
                 {
@@ -64,7 +78,32 @@
 
         </script>    
          <style type="text/css">
-            .cardBox 
+             .cardBox
+            {            
+                position: relative;
+        
+        
+                text-align: center;
+                margin-left: auto;
+                margin-right: auto;
+                width: 350px;
+                text-align: center;
+            }
+            .front 
+            {
+                background: white;
+                position: relative;
+                text-align: center;
+                margin-left: auto;
+                margin-right: auto;
+                top: 20px;
+                width: 350px;
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                padding: 20px;
+                padding-bottom: 50px;
+    
+            }
+            .back 
             {
                 background: white;
                 position: relative;
@@ -123,13 +162,15 @@
         String emptyErr = request.getParameter("empty");
     %>
     
-    <body background="bg.png">
-        <div style="text-align: center">
-            <div class="cardBox" style="top:100px;">
+    <body>
+        <div id="card" class="cardBox" style="text-align: center">
+            <div id="frontBox" class="front" style="top:100px;">
                 <div class="boxText">
                 <h1 id="signInText">Sign in</h1>
                 <p id="tipText">You can sign in using your Hotelgo account to access our services.</p>
+              
                 <p>Email address</p>
+                <br>
                 <form id="signForm" action="ConnServlet" method="post" style="position:relative; top:-18px;">
                 <input id="forwardType" value="register" style="display:none">
                 <input class="loginBar" id="username">
@@ -140,7 +181,29 @@
                 </form>
                 </div>
                    <button class="signInBtn" onclick="signBtnAction()"><span id="btnText"class="text">Sign in</span></button>
-                   <p id="registerText" class="boxText" style="position: relative; float: top; top: 30px; text-align: center;" >Don't have an account yet? <span style="cursor: pointer; color: #c5464a;" onclick="signUpBtnAction()"><b>Sign up</b></span></p>
+                   <p id="registerText" class="boxText" style="position: relative; float: top; top: 30px; text-align: center;" >Don't have an account yet? <span style="cursor: pointer; color: #c5464a;" onclick="signUpBtnAction()" id="signUpBtn"><b>Sign up</b></span></p>
+            <br>
+            <p>——————————————————————<p>
+            </div>
+            
+             <div id="backBox" class="back" style="top:100px;">
+                <div class="boxText">
+                <h1 id="signInText">Fast registration</h1>
+                <p id="tipText">Spend only 30 seconds to create your HotelGo account today</p>
+              
+                <p>Email address</p>
+                <br>
+                <form id="signForm" action="ConnServlet" method="post" style="position:relative; top:-18px;">
+                <input id="forwardType" value="register" style="display:none">
+                <input class="loginBar" id="username">
+                <p>Password</p>
+                <input class="loginBar" id="firstPw">
+                <p id="confirmText" style="">Confirm Password</p>
+                <input id="confirmInput" id="confirmPw" style="" class="loginBar">
+                </form>
+                </div>
+                   <button class="signInBtn" onclick="signBtnAction()"><span id="btnText"class="text">Sign up now</span></button>
+                   <p id="registerText" class="boxText" style="position: relative; float: top; top: 30px; text-align: center;" >Already have an account? <span style='cursor: pointer; color: #c5464a;' id="goSignInBtn" onclick='goSignInBtnAction()'><b>Sign in</b></span>
             </div>
         </div>
 
