@@ -17,7 +17,8 @@ and open the template in the editor.
          <h1>HotelGO</h1>  
         
         <a class="navbar-brand" href="#Register-Div" data-toggle="tab" id="Register-Tab">Register</a>
-      <a class="navbar-brand" href="#Login-Div" data-toggle="tab" id="Login-Tab">Login</a>
+      <a class="navbar-brand" href="login.jsp"
+         data-toggle="tab" id="Login-Tab">Login</a>
                        
         
     </body>
