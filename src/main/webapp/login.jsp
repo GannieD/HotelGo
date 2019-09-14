@@ -21,7 +21,7 @@
            
             function signUpBtnAction()
             {
-               
+                document.getElementById("card").height = "400px";
                 $("#card").flip(true);
                 
                 /* if(inSignUp == false)
@@ -81,12 +81,11 @@
              .cardBox
             {            
                 position: relative;
-        
-        
                 text-align: center;
                 margin-left: auto;
                 margin-right: auto;
                 width: 350px;
+                height: 400px;
                 text-align: center;
             }
             .front 
@@ -163,7 +162,7 @@
     %>
     
     <body>
-        <div id="card" class="cardBox" style="text-align: center">
+        <div id="card" class="cardBox">
             <div id="frontBox" class="front" style="top:100px;">
                 <div class="boxText">
                 <h1 id="signInText">Sign in</h1>
@@ -175,15 +174,12 @@
                 <input id="forwardType" value="register" style="display:none">
                 <input class="loginBar" id="username">
                 <p>Password</p>
-                <input class="loginBar" id="firstPw">
-                <p id="confirmText" style="display:none;">Confirm Password</p>
-                <input id="confirmInput" id="confirmPw" style="display:none" class="loginBar">
+                <input class="loginBar" id="password">  
                 </form>
                 </div>
                    <button class="signInBtn" onclick="signBtnAction()"><span id="btnText"class="text">Sign in</span></button>
                    <p id="registerText" class="boxText" style="position: relative; float: top; top: 30px; text-align: center;" >Don't have an account yet? <span style="cursor: pointer; color: #c5464a;" onclick="signUpBtnAction()" id="signUpBtn"><b>Sign up</b></span></p>
-            <br>
-            <p>——————————————————————<p>
+         
             </div>
             
              <div id="backBox" class="back" style="top:100px;">
@@ -195,7 +191,7 @@
                 <br>
                 <form id="signForm" action="ConnServlet" method="post" style="position:relative; top:-18px;">
                 <input id="forwardType" value="register" style="display:none">
-                <input class="loginBar" id="username">
+                <input class="loginBar" id="email">
                 <p>Password</p>
                 <input class="loginBar" id="firstPw">
                 <p id="confirmText" style="">Confirm Password</p>
