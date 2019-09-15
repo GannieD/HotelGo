@@ -172,7 +172,7 @@
                     <h4> Hilton Sydney  </h4>
                     <p>3 nights from</p>
                     <div class="h4 price">$1,305</div>
-                    <p>Book by: 15-09-2019</p><a href="#" data-text="see more" class="btn btn-winona btn-transparent btn-xs">see more</a>
+                    <p>Book by: 15-09-2019</p><a href="orderplacing.jsp" data-text="see more" class="btn btn-winona btn-transparent btn-xs">see more</a>
                   </div>
                 </div>
               </div>
@@ -192,7 +192,7 @@
                   <div class="unit-body">
                     <blockquote class="quote">
                       <p>
-                        <q>"I will use HotelGo again! Iâve told all my friends how great these guys are and how great is the service they provide."</q>
+                        <q>"I will use HotelGo again! IÃ¢ÂÂve told all my friends how great these guys are and how great is the service they provide."</q>
                       </p>
                       <p>
                         <cite>- Monica</cite>
@@ -210,7 +210,7 @@
                   <div class="unit-body">
                     <blockquote class="quote">
                       <p>
-                        <q>âWe had an unforgettable Travel experience with HotelGo. Great personalized service! Do not hesitate to use HotelGo. Highly recommend."</q>
+                        <q>Ã¢ÂÂWe had an unforgettable Travel experience with HotelGo. Great personalized service! Do not hesitate to use HotelGo. Highly recommend."</q>
                       </p>
                       <p>
                         <cite>- Christin</cite>
