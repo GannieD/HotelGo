@@ -47,7 +47,7 @@
                    <li><a href="#"><span>about</span><span class="triangle"></span></a></li>
                     <li><a href="#"><span>contacts</span><span class="triangle"></span></a></li>
                     <li><a class="navbar-brand" href="#Register-Div" data-toggle="tab" id="Register-Tab">Register</a></li>
-                    <li>  <a class="navbar-brand" href="#Login-Div" data-toggle="tab" id="Login-Tab">Login</a></li>
+                    <li>  <a class="navbar-brand" href="login.jsp" data-toggle="tab" id="Login-Tab">Login</a></li>
                   </ul>
                 </div><a href="#" class="btn btn-orange-2 btn-lg btn-icon"><span class="icon icon-lg icon-white material-icons-location_on"></span><span>find us</span></a>
               </div>
