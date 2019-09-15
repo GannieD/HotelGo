@@ -19,5 +19,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class AutoTester {
-    
+    WebDriver driver;
+   
 }
