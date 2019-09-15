@@ -4,8 +4,7 @@
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <!DOCTYPE html>
 <html lang="en" >
-    <head>
-    //GAE    
+    <head>  
         <meta charset="UTF-8">
         <meta name="format-detection" content="telephone=no">
         <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -83,7 +82,7 @@
                 margin-left: auto;
                 margin-right: auto;
                 width: 350px;
-                height: 400px;
+                height: 450px;
                 text-align: center;
             }
             .front 
@@ -161,7 +160,7 @@
     
     <body>
         <div id="card" class="cardBox">
-            <div id="frontBox" class="front" style="top:100px;">
+            <div id="frontBox" class="front" style="top:70px;">
                 <div class="boxText">
                 <h1 id="signInText">Sign in</h1>
                 <p id="tipText">You can sign in using your Hotelgo account to access our services.</p>
@@ -180,7 +179,7 @@
          
             </div>
             
-             <div id="backBox" class="back" style="top:100px;">
+             <div id="backBox" class="back" style="top:70px;">
                 <div class="boxText">
                 <h1 id="signInText">Fast registration</h1>
                 <p id="tipText">Spend only 30 seconds to create your HotelGo account today</p>
@@ -199,9 +198,11 @@
                 </div>
                    <button class="signBtn" onclick="signUpBtnAction()"><span id="btnText"class="text">Sign up now</span></button>
                    <p id="registerText" class="boxText" style="position: relative; float: top; top: 30px; text-align: center;" >Already have an account? <span style='cursor: pointer; color: #c5464a;' id="goSignInBtn" onclick='goSignInBtnAction()'><b>Sign in</b></span>
+                       
             </div>
+            
         </div>
-
+     
     </body>
 
 </html>
