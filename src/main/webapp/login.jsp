@@ -15,11 +15,13 @@
            
             $(function(){
                  $("#card").flip({
-                trigger: 'manual'
+                trigger: 'manual',
+                speed: 400,
+                reverse: true
               });
             });
            
-            function signUpBtnAction()
+            function goSignUpBtnAction()
             {
                 document.getElementById("card").height = "400px";
                 $("#card").flip(true);
@@ -50,30 +52,22 @@
             {
                 $("#card").flip(false);
             }
-            function signBtnAction()
+            function signUpBtnAction()
             {
      
-                
-                if(inSignUp == false)
+                $("#signUpForm").submit();    
+                /* var firstPw = document.getElementById("firstPw").value.toString()
+                var confirmPw =  document.getElementById("confirmPw").value.toString()
+
+                if(firstPw != confirmPw)
                 {
-                   
+                    alert("Please confirm your password")
                 }
                 else
                 {
-                    $("#signForm").submit();
-                    
-                    var firstPw = document.getElementById("firstPw").value.toString()
-                    var confirmPw =  document.getElementById("confirmPw").value.toString()
-                    
-                    if(firstPw != confirmPw)
-                    {
-                        alert("Please confirm your password ")
-                    }
-                    else
-                    {
-                        
-                    }
+                    $("#signUpForm").submit();
                 }
+                */
             }
 
         </script>    
@@ -134,7 +128,7 @@
                 top:0;
                 right:0;
             }
-             .signInBtn
+             .signBtn
             {
                 position:relative;
                 background:#c5464a;
@@ -172,13 +166,13 @@
                 <br>
                 <form id="signForm" action="ConnServlet" method="post" style="position:relative; top:-18px;">
                 <input id="forwardType" value="register" style="display:none">
-                <input class="loginBar" id="username">
+                <input class="loginBar" id="username" >
                 <p>Password</p>
                 <input class="loginBar" id="password">  
                 </form>
                 </div>
-                   <button class="signInBtn" onclick="signBtnAction()"><span id="btnText"class="text">Sign in</span></button>
-                   <p id="registerText" class="boxText" style="position: relative; float: top; top: 30px; text-align: center;" >Don't have an account yet? <span style="cursor: pointer; color: #c5464a;" onclick="signUpBtnAction()" id="signUpBtn"><b>Sign up</b></span></p>
+                   <button class="signBtn" onclick=""><span id="btnText"class="text">Sign in</span></button>
+                   <p id="registerText" class="boxText" style="position: relative; float: top; top: 30px; text-align: center;" >Don't have an account yet? <span style="cursor: pointer; color: #c5464a;" onclick="goSignUpBtnAction()" id="signUpBtn"><b>Sign up</b></span></p>
          
             </div>
             
@@ -189,16 +183,17 @@
               
                 <p>Email address</p>
                 <br>
-                <form id="signForm" action="ConnServlet" method="post" style="position:relative; top:-18px;">
+                <form id="signUpForm" action="ConnServlet" method="post" style="position:relative; top:-18px;">
                 <input id="forwardType" value="register" style="display:none">
-                <input class="loginBar" id="email">
+                <input class="loginBar" id="email" name="newUsername">
                 <p>Password</p>
-                <input class="loginBar" id="firstPw">
+                <input class="loginBar" id="firstPw" value="" name="newPassword">
                 <p id="confirmText" style="">Confirm Password</p>
-                <input id="confirmInput" id="confirmPw" style="" class="loginBar">
+                <input id="confirmInput" id="confirmPw" value="" class="loginBar">
                 </form>
+                
                 </div>
-                   <button class="signInBtn" onclick="signBtnAction()"><span id="btnText"class="text">Sign up now</span></button>
+                   <button class="signBtn" onclick="signUpBtnAction()"><span id="btnText"class="text">Sign up now</span></button>
                    <p id="registerText" class="boxText" style="position: relative; float: top; top: 30px; text-align: center;" >Already have an account? <span style='cursor: pointer; color: #c5464a;' id="goSignInBtn" onclick='goSignInBtnAction()'><b>Sign in</b></span>
             </div>
         </div>

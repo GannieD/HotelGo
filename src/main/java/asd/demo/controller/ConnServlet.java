@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
+import asd.demo.model.*;
 /**
  *
  * @author George
@@ -21,17 +21,25 @@ public class ConnServlet extends HttpServlet {
     @Override 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String adminemail = request.getParameter("adminemail");
-        String adminpass = request.getParameter("adminpassword");
-        connector = new MongoDBConnector(adminemail, adminpass);        
+        String newUsername = request.getParameter("newUsername");
+        String newPassword = request.getParameter("newPassword");
+        
+        connector = new MongoDBConnector("Christian", "Abclzm123"); 
+        //User newUser = new User("Christian", newUsername, newPassword, 1234567);
+        //connector.add(newUser);
         response.setContentType("text/html;charset=UTF-8");  
         HttpSession session = request.getSession();              
-        String status = (connector != null) ? "Connected to mLab" : "Disconnected from mLab";        
+        String status = (connector != null) ? "Connected to MongoDB" : "Disconnected from MongoDB";        
         
         session.setAttribute("status", status); 
-        session.setAttribute("adminemail", adminemail);
-        session.setAttribute("adminpassword", adminpass);
-          
+        //session.setAttribute("adminemail", adminemail);
+        //session.setAttribute("adminpassword", adminpass);
+        System.out.println("MongoDB Atlas status");
+        System.out.println(status);
+        connector.addUser(newUsername, newPassword);
+        connector.showTable();
+        
+
         RequestDispatcher rs = request.getRequestDispatcher("index.jsp");
         rs.forward(request, response);
     }    

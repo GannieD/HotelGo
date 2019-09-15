@@ -18,11 +18,11 @@
             <artifactId>appengine-api-1.0-sdk</artifactId>
             <version>1.9.65</version>
         </dependency>
-        <!-- mLab MongoDB driver dependency -->
+        <!-- https://mvnrepository.com/artifact/org.mongodb/mongo-java-driver -->
         <dependency>
             <groupId>org.mongodb</groupId>
-            <artifactId>mongodb-driver</artifactId>
-            <version>3.4.2</version>
+            <artifactId>mongo-java-driver</artifactId>
+            <version>3.11.0</version>
             <type>jar</type>
         </dependency>
         <dependency>
