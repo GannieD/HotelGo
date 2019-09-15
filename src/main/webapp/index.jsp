@@ -1,9 +1,11 @@
+<%-- 
+    Document   : newjsp
+    Created on : 2019-9-15, 14:35:37
+    Author     : Xinghao
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
     
     <head>
@@ -45,7 +47,7 @@ and open the template in the editor.
                    <li><a href="#"><span>about</span><span class="triangle"></span></a></li>
                     <li><a href="#"><span>contacts</span><span class="triangle"></span></a></li>
                     <li><a class="navbar-brand" href="#Register-Div" data-toggle="tab" id="Register-Tab">Register</a></li>
-                    <li>  <a class="navbar-brand" href="login.jsp" data-toggle="tab" id="Login-Tab">Login</a></li>
+                    <li>  <a class="navbar-brand" onclick="window.location='login.jsp'" href="" data-toggle="tab" id="Login-Tab">Login</a></li>
                   </ul>
                 </div><a href="#" class="btn btn-orange-2 btn-lg btn-icon"><span class="icon icon-lg icon-white material-icons-location_on"></span><span>find us</span></a>
               </div>
@@ -164,6 +166,16 @@ and open the template in the editor.
                   </div>
                 </div>
               </div>
+                <div class="cell-sm-6 cell-md-4 offset-top-30 offset-sm-top-0">
+                <div class="thumbnail-custom thumbnail-custom-variant-3"><img src="images/hilton.jpg" alt="" width="370" height="370">
+                  <div class="caption">
+                    <h4> Hilton Sydney  </h4>
+                    <p>3 nights from</p>
+                    <div class="h4 price">$1,305</div>
+                    <p>Book by: 15-09-2019</p><a href="#" data-text="see more" class="btn btn-winona btn-transparent btn-xs">see more</a>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -180,7 +192,7 @@ and open the template in the editor.
                   <div class="unit-body">
                     <blockquote class="quote">
                       <p>
-                        <q>"I will use HotelGo again! I’ve told all my friends how great these guys are and how great is the service they provide."</q>
+                        <q>"I will use HotelGo again! IÃ¢ÂÂve told all my friends how great these guys are and how great is the service they provide."</q>
                       </p>
                       <p>
                         <cite>- Monica</cite>
@@ -198,7 +210,7 @@ and open the template in the editor.
                   <div class="unit-body">
                     <blockquote class="quote">
                       <p>
-                        <q>“We had an unforgettable Travel experience with HotelGo. Great personalized service! Do not hesitate to use HotelGo. Highly recommend."</q>
+                        <q>Ã¢ÂÂWe had an unforgettable Travel experience with HotelGo. Great personalized service! Do not hesitate to use HotelGo. Highly recommend."</q>
                       </p>
                       <p>
                         <cite>- Christin</cite>
