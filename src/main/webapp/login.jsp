@@ -82,7 +82,7 @@
                 margin-left: auto;
                 margin-right: auto;
                 width: 350px;
-                height: 450px;
+                height: 420px;
                 text-align: center;
             }
             .front 
@@ -174,6 +174,7 @@
                 <input class="loginBar" type="password" id="password">  
                 </form>
                 </div>
+               
                    <button class="signBtn" onclick=""><span id="btnText"class="text">Sign in</span></button>
                    <p id="registerText" class="boxText" style="position: relative; float: top; top: 30px; text-align: center;" >Don't have an account yet? <span style="cursor: pointer; color: #c5464a;" onclick="goSignUpBtnAction()" id="signUpBtn"><b>Sign up</b></span></p>
          
