@@ -168,7 +168,7 @@
                 <input id="forwardType" value="register" style="display:none">
                 <input class="loginBar" id="username" >
                 <p>Password</p>
-                <input class="loginBar" id="password">  
+                <input class="loginBar" type="password" id="password">  
                 </form>
                 </div>
                    <button class="signBtn" onclick=""><span id="btnText"class="text">Sign in</span></button>
@@ -187,9 +187,9 @@
                 <input id="forwardType" value="register" style="display:none">
                 <input class="loginBar" id="email" name="newUsername">
                 <p>Password</p>
-                <input class="loginBar" id="firstPw" value="" name="newPassword">
+                <input class="loginBar" type="password" id="firstPw" value="" name="newPassword">
                 <p id="confirmText" style="">Confirm Password</p>
-                <input id="confirmInput" id="confirmPw" value="" class="loginBar">
+                <input id="confirmInput" type="password" id="confirmPw" value="" class="loginBar">
                 </form>
                 
                 </div>
