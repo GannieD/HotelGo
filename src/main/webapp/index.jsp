@@ -1,9 +1,11 @@
+<%-- 
+    Document   : newjsp
+    Created on : 2019-9-15, 14:35:37
+    Author     : Xinghao
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
     
     <head>
@@ -180,7 +182,7 @@ and open the template in the editor.
                   <div class="unit-body">
                     <blockquote class="quote">
                       <p>
-                        <q>"I will use HotelGo again! I’ve told all my friends how great these guys are and how great is the service they provide."</q>
+                        <q>"I will use HotelGo again! Iâve told all my friends how great these guys are and how great is the service they provide."</q>
                       </p>
                       <p>
                         <cite>- Monica</cite>
@@ -198,7 +200,7 @@ and open the template in the editor.
                   <div class="unit-body">
                     <blockquote class="quote">
                       <p>
-                        <q>“We had an unforgettable Travel experience with HotelGo. Great personalized service! Do not hesitate to use HotelGo. Highly recommend."</q>
+                        <q>âWe had an unforgettable Travel experience with HotelGo. Great personalized service! Do not hesitate to use HotelGo. Highly recommend."</q>
                       </p>
                       <p>
                         <cite>- Christin</cite>
