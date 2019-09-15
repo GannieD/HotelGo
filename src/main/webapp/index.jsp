@@ -166,6 +166,16 @@
                   </div>
                 </div>
               </div>
+                <div class="cell-sm-6 cell-md-4 offset-top-30 offset-sm-top-0">
+                <div class="thumbnail-custom thumbnail-custom-variant-3"><img src="images/hilton.jpg" alt="" width="370" height="370">
+                  <div class="caption">
+                    <h4> Hilton Sydney  </h4>
+                    <p>3 nights from</p>
+                    <div class="h4 price">$1,305</div>
+                    <p>Book by: 15-09-2019</p><a href="#" data-text="see more" class="btn btn-winona btn-transparent btn-xs">see more</a>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
