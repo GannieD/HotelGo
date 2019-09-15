@@ -16,12 +16,16 @@
           Booking Confirmation  
         </h1>
         <%@ include file="header.html" %> <br>
+        
+        <img src="images/hilton.jpg" alt="" width="500" height="370"><br>
+        
         <a href ="hilton.jsp">Hilton Sydney </a>
         <p style="color: black;">
             488 George Street, Sydney, NSW, 2000, Australia</p>
         <p style="color: black">
             Tel: +61-2-9266-2xxx
         </p>  
+        
         <p>
             Check in: 16 September 
         </p>
@@ -49,7 +53,7 @@
                     <p>Card number <span style="color: red;">*</span></p>
                     <input class="bar" style="width:200px;">
                     <p>Expiry date <span style="color: red;">*</span></p>
-                    
+                    <input id="datetimepicker1" type="text" date-time-picker="date" placeholder="mm/yy" data-constraints="@Required" class="form-control">
                     <p>CVC-code <span style="color: red;">*</span></p>
                     <input class="bar" style="width:50px;">
                 </div> 
