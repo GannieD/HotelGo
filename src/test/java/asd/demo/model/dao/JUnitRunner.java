@@ -12,5 +12,9 @@ import org.junit.runner.JUnitCore;
 public class JUnitRunner {
     public static void main(String[] args){
         System.out.println("------------TEST TEXT------------");
+        org.junit.runner.Result result = JUnitCore.runClasses(JUnitTest.class);
+        result.getFailures().forEach((failure) -> {
+            System.out.println(failure.toString());
+        });
     }
 }
