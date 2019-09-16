@@ -49,7 +49,7 @@ public class JUnitTest {
         System.out.println("MongoDB Connection passed the test!");
        
     }
-    @Test
+    /* @Test
     public void testLoginPage() {
         System.out.println("\n Start test LoginPage");
         int randomNumber = 1+(int)(Math.random()*999999999);
@@ -79,5 +79,5 @@ public class JUnitTest {
         System.out.println("Registration passed test!");
         driver.close();
     }
-    
+    */ 
 }
