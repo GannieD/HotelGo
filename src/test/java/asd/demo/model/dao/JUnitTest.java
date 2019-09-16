@@ -77,7 +77,6 @@ public class JUnitTest {
         driver.findElement(By.id("signUpNowBtn")).click();
         Assert.assertEquals("HotelGo", driver.getTitle());
         System.out.println("Registration passed test!");
-        System.out.println("Test finish!");
         driver.close();
     }
     
