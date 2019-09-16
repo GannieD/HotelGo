@@ -197,7 +197,7 @@
                 </form>
                 
                 </div>
-                   <button class="signBtn" onclick="signUpBtnAction()"><span id="btnText"class="text">Sign up now</span></button>
+                   <button id="signUpNowBtn" class="signBtn" onclick="signUpBtnAction()"><span id="btnText"class="text">Sign up now</span></button>
                    <p id="signIntext" class="boxText" style="position: relative; float: top; top: 30px; text-align: center;" >Already have an account? <span style='cursor: pointer; color: #c5464a;' id="goSignInBtn" onclick='goSignInBtnAction()'><b>Sign in</b></span>
                        
             </div>
