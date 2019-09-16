@@ -58,19 +58,21 @@
             function signUpBtnAction()
             {
      
-                $("#signUpForm").submit();    
-                /* var firstPw = document.getElementById("firstPw").value.toString()
-                var confirmPw =  document.getElementById("confirmPw").value.toString()
+                   
+                var firstPw = document.getElementById("firstPw").value
+                var confirmPw =  document.getElementById("confirmPw").value
 
                 if(firstPw != confirmPw)
                 {
                     alert("Please confirm your password")
+                    return false;
                 }
                 else
                 {
                     $("#signUpForm").submit();
+                    return true;
                 }
-                */
+                
             }
 
         </script>    
@@ -193,7 +195,7 @@
                 <p>Password</p>
                 <input class="loginBar" type="password" id="firstPw" value="" name="newPassword">
                 <p id="confirmText" style="">Confirm Password</p>
-                <input class="loginBar" id="confirmPw" type="password"value="" >
+                <input class="loginBar" id="confirmPw" type="password" value="" >
                 </form>
                 
                 </div>

@@ -27,6 +27,15 @@ public class AutoTester {
         driver.findElement(By.id("goSignUpBtn")).click();
         driver.findElement(By.id("email")).sendKeys("testemail@test.com");
         driver.findElement(By.id("firstPw")).sendKeys("12345678");
+        driver.findElement(By.id("confirmPw")).sendKeys("1234567");
+        if (driver.switchTo().alert().getText() == "Please confirm your password"){
+            System.out.println("Password confirmation passed test!");
+        }else{
+            System.out.println("Password confirmation did not pass test!");
+        }
+        driver.switchTo().alert().accept();
+        driver.findElement(By.id("email")).sendKeys("testemail@test.com");
+        driver.findElement(By.id("firstPw")).sendKeys("12345678");
         driver.findElement(By.id("confirmPw")).sendKeys("12345678");
         driver.findElement(By.id("signUpNowBtn")).click();
         System.out.println(driver.getTitle());
