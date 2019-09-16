@@ -193,7 +193,7 @@
                 <p>Password</p>
                 <input class="loginBar" type="password" id="firstPw" value="" name="newPassword">
                 <p id="confirmText" style="">Confirm Password</p>
-                <input id="confirmInput" type="password" id="confirmPw" value="" class="loginBar">
+                <input class="loginBar" id="confirmPw" type="password"value="" >
                 </form>
                 
                 </div>
