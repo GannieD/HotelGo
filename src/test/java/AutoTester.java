@@ -16,11 +16,19 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 public class AutoTester {
-    WebDriver driver;
-    
+   
+    public static void main(String[] args){
+        System.setProperty("webdriver.chrome.driver", "chromedriver");
+        WebDriver driver = new ChromeDriver();
+        driver.get("https://asd-hotel-app.herokuapp.com/login.jsp");
+        driver.findElement(By.id("registerText")).click();
+        System.out.println(driver.getTitle());
+        //driver.close();
+        
+    }
 }
            
    

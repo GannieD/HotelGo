@@ -44,24 +44,12 @@ public class JUnitTest {
     @Test     
     public void testMongoDB() {
         Assert.assertNotNull("Cannot connect with MongoDB", db.getMongoDB());
-       
+        System.out.println("MongoDB Connection passed the test!");
        
     }
     @Test
     public void testLoginPage() {
-        System.out.println("\n Start login page test");
-        WebDriver driver = new FirefoxDriver();
-        System.out.println("------------TEST TEXT------------");
-        String baseUrl = "https://asd-hotel-app.herokuapp.com/login.jsp";
-        String expectedTitle = "HotelGo-Login";
-        String actualTitle = "";
-        driver.get(baseUrl);
-        actualTitle = driver.getTitle();
-        if (actualTitle.contentEquals(expectedTitle)){
-            System.out.println("Test Passed!");
-        } else {
-            System.out.println("Test Failed");
-        }
+       
     }
     
 }
