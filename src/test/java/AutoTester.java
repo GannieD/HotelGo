@@ -27,7 +27,7 @@ public class AutoTester {
         driver.findElement(By.id("goSignUpBtn")).click();
         driver.findElement(By.id("email")).sendKeys("testemail@test.com");
         driver.findElement(By.id("firstPw")).sendKeys("12345678");
-        driver.findElement(By.id("secondPw")).sendKeys("12345678");
+        driver.findElement(By.id("confirmPw")).sendKeys("12345678");
         driver.findElement(By.id("signUpNowBtn")).click();
         System.out.println(driver.getTitle());
         //driver.close();
