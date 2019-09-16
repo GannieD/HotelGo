@@ -24,7 +24,7 @@ public class AutoTester {
         System.setProperty("webdriver.chrome.driver", "chromedriver");
         WebDriver driver = new ChromeDriver();
         driver.get("https://asd-hotel-app.herokuapp.com/login.jsp");
-        driver.findElement(By.id("registerText")).click();
+        driver.findElement(By.id("goSignUpBtn")).click();
         System.out.println(driver.getTitle());
         //driver.close();
         
