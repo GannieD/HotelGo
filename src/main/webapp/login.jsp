@@ -9,7 +9,7 @@
         <meta name="format-detection" content="telephone=no">
         <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Login</title>
+        <title>HotelGo-Login</title>
         <script src="https://code.jquery.com/jquery-2.1.4.min.js">
         </script>
         <script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js">
@@ -58,19 +58,21 @@
             function signUpBtnAction()
             {
      
-                $("#signUpForm").submit();    
-                /* var firstPw = document.getElementById("firstPw").value.toString()
-                var confirmPw =  document.getElementById("confirmPw").value.toString()
+                   
+                var firstPw = document.getElementById("firstPw").value
+                var confirmPw =  document.getElementById("confirmPw").value
 
                 if(firstPw != confirmPw)
                 {
                     alert("Please confirm your password")
+                    return false;
                 }
                 else
                 {
                     $("#signUpForm").submit();
+                    return true;
                 }
-                */
+                
             }
 
         </script>    
@@ -176,7 +178,7 @@
                 </div>
                
                    <button class="signBtn" onclick=""><span id="btnText"class="text">Sign in</span></button>
-                   <p id="registerText" class="boxText" style="position: relative; float: top; top: 30px; text-align: center;" >Don't have an account yet? <span style="cursor: pointer; color: #c5464a;" onclick="goSignUpBtnAction()" id="signUpBtn"><b>Sign up</b></span></p>
+                   <p id="registerText" class="boxText" style="position: relative; float: top; top: 30px; text-align: center;" >Don't have an account yet? <span style="cursor: pointer; color: #c5464a;" onclick="goSignUpBtnAction()" id="goSignUpBtn"><b>Sign up</b></span></p>
          
             </div>
             
@@ -193,12 +195,12 @@
                 <p>Password</p>
                 <input class="loginBar" type="password" id="firstPw" value="" name="newPassword">
                 <p id="confirmText" style="">Confirm Password</p>
-                <input id="confirmInput" type="password" id="confirmPw" value="" class="loginBar">
+                <input class="loginBar" id="confirmPw" type="password" value="" >
                 </form>
                 
                 </div>
-                   <button class="signBtn" onclick="signUpBtnAction()"><span id="btnText"class="text">Sign up now</span></button>
-                   <p id="registerText" class="boxText" style="position: relative; float: top; top: 30px; text-align: center;" >Already have an account? <span style='cursor: pointer; color: #c5464a;' id="goSignInBtn" onclick='goSignInBtnAction()'><b>Sign in</b></span>
+                   <button id="signUpNowBtn" class="signBtn" onclick="signUpBtnAction()"><span id="btnText"class="text">Sign up now</span></button>
+                   <p id="signIntext" class="boxText" style="position: relative; float: top; top: 30px; text-align: center;" >Already have an account? <span style='cursor: pointer; color: #c5464a;' id="goSignInBtn" onclick='goSignInBtnAction()'><b>Sign in</b></span>
                        
             </div>
             
