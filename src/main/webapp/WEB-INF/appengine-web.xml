@@ -4,7 +4,7 @@
       And-hotel-app
     -->
     <application>asd-hotel-app</application>
-    <version>1.0</version>
+    <version>v1</version>
     <runtime>java8</runtime>
     <!--
       Allows App Engine to send multiple requests to one instance in parallel:
