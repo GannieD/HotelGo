@@ -21,27 +21,35 @@ public class ConnServlet extends HttpServlet {
     @Override 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String newUsername = request.getParameter("newUsername");
-        String newPassword = request.getParameter("newPassword");
-        
-        connector = new MongoDBConnector("Christian", "Abclzm123"); 
-        //User newUser = new User("Christian", newUsername, newPassword, 1234567);
-        //connector.add(newUser);
-        response.setContentType("text/html;charset=UTF-8");  
-        HttpSession session = request.getSession();              
-        String status = (connector != null) ? "Connected to MongoDB" : "Disconnected from MongoDB";        
-        
-        session.setAttribute("status", status); 
-        //session.setAttribute("adminemail", adminemail);
-        //session.setAttribute("adminpassword", adminpass);
-        System.out.println("MongoDB Atlas status");
-        System.out.println(status);
-        connector.addUser(newUsername, newPassword);
-        connector.showTable();
-        
+        String logicType = request.getParameter("forwardType");
+        if(logicType == "register")
+        {
+            String newUsername = request.getParameter("newUsername");
+            String newPassword = request.getParameter("newPassword");
 
-        RequestDispatcher rs = request.getRequestDispatcher("index.jsp");
-        rs.forward(request, response);
+            connector = new MongoDBConnector("Christian", "Abclzm123"); 
+            //User newUser = new User("Christian", newUsername, newPassword, 1234567);
+            //connector.add(newUser);
+            response.setContentType("text/html;charset=UTF-8");  
+            HttpSession session = request.getSession();              
+            String status = (connector != null) ? "Connected to MongoDB" : "Disconnected from MongoDB";        
+
+            session.setAttribute("status", status); 
+            //session.setAttribute("adminemail", adminemail);
+            //session.setAttribute("adminpassword", adminpass);
+            System.out.println("MongoDB Atlas status");
+            System.out.println(status);
+            connector.addUser(newUsername, newPassword);
+            connector.showTable();
+
+
+            RequestDispatcher rs = request.getRequestDispatcher("index.jsp");
+            rs.forward(request, response);
+        }
+        if (logicType == "login")
+        {
+            
+        }
     }    
   
 }
