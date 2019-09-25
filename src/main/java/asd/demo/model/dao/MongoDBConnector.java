@@ -66,14 +66,18 @@ public class MongoDBConnector {
         }
         return user;
     }
-    public User checkUser(String email, String password) {
-        MongoClientURI uri = new MongoClientURI("mongodb://" + this.owner + ":" + this.password + "@ds029496.mlab.com:29496/heroku_59pxdn6j");
-        User user;
+    public User checkUser(String email, String password){
+        MongoClientURI uri = new MongoClientURI("mongodb+srv://" + this.owner + ":" + this.password + "@cluster0-fmqy8.gcp.mongodb.net/test?retryWrites=true&w=majority");
+        User user = null;
+        Document doc = null;
         try (MongoClient client = new MongoClient(uri)) {
-            MongoDatabase db = client.getDatabase(uri.getDatabase());
-            MongoCollection<Document> userlist = db.getCollection("users");
-            Document doc = userlist.find(and(eq("username", email), eq("password", password))).first();
-            user = new User( (String) doc.get("username"), (String) doc.get("psssword"));
+            MongoDatabase db = client.getDatabase("hotel_go");
+            MongoCollection<Document> collection = db.getCollection("users");
+            doc = collection.find(and(eq("username", email), eq("password", password))).first();
+            if(doc != null){
+                user = new User((String) doc.get("username"), (String) doc.get("password"));
+            }
+
         }
         return user;
     }

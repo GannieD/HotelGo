@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import asd.demo.model.*;
+import java.io.PrintWriter;
 /**
  *
  * @author George
@@ -22,7 +23,8 @@ public class ConnServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String logicType = request.getParameter("forwardType");
-        if (logicType == "register")
+        System.out.println(logicType);
+        if (logicType.equals("register"))
         {
             String newUsername = request.getParameter("newUsername");
             String newPassword = request.getParameter("newPassword");
@@ -46,21 +48,36 @@ public class ConnServlet extends HttpServlet {
             RequestDispatcher rs = request.getRequestDispatcher("index.jsp");
             rs.forward(request, response);
         }
-        if (logicType == "login")
+        if (logicType.equals("login"))
         {
+            boolean correctInfo = false;
+            User user;
+            connector = new MongoDBConnector("Christian", "Abclzm123"); 
             String username = request.getParameter("username");
             String password = request.getParameter("password");
+            System.out.print(username);
+            System.out.print(password);
             response.setContentType("text/html;charset=UTF-8");  
             HttpSession session = request.getSession(); 
-            User user = connector.checkUser(username, password);
-           
+            
+            user = connector.checkUser(username, password);
+            System.out.print(user);
             String status = (user != null) ? "Login successfully" : "Wrong username or password"; 
             session.setAttribute("status", status); 
             if (user != null)
             {
-                RequestDispatcher rs = request.getRequestDispatcher("index.jsp");
-                rs.forward(request, response);
+                correctInfo = true;
+                PrintWriter out = response.getWriter();
+                out.write(String.valueOf(correctInfo));
+                out.close();
             }
+            else
+            {
+                PrintWriter out = response.getWriter();
+                out.write(String.valueOf(correctInfo));
+                out.close();
+            }
+            System.out.println("correctInfo: " + correctInfo);
             
         }
     }    

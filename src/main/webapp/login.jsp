@@ -20,7 +20,8 @@
                  $("#card").flip({
                 trigger: 'manual',
                 speed: 400,
-                reverse: true
+                reverse: true,
+
               });
             });
            
@@ -29,27 +30,7 @@
                 document.getElementById("card").height = "400px";
                 $("#card").flip(true);
                 
-                /* if(inSignUp == false)
-                {
-                    $("#confirmText").show();
-                    $("#confirmInput").show();
-                    document.getElementById("tipText").innerHTML = "Create your Hotelgo.com account today"
-                    document.getElementById("btnText").innerHTML = "Sign up"
-                    document.getElementById("registerText").innerHTML = "Already have an account? <span style='cursor: pointer; color: green;' onclick='signUpBtnAction()'><b>Sign in</b></span>"
-                    document.getElementById("signInText").innerHTML = "Sign up"
-                    inSignUp = true
-                }
-                else
-                {
-                    $("#confirmText").hide();
-                    $("#confirmInput").hide();
-                    document.getElementById("tipText").innerHTML = "You can sign in using your Hotelgo.com account to access our services."
-                    document.getElementById("btnText").innerHTML = "Sign in"
-                    document.getElementById("registerText").innerHTML = "Don't have an account yet? <span style='cursor: pointer; color: #c5464a;' onclick='signUpBtnAction()'><b>Sign up</b></span>"
-                    document.getElementById("signInText").innerHTML = "Sign in"
-                    inSignUp = false
-                }
-                */
+              
             }
             function goSignInBtnAction()
             {
@@ -58,36 +39,104 @@
             function signUpBtnAction()
             {
      
-                   
-                var firstPw = document.getElementById("firstPw").value
-                var confirmPw =  document.getElementById("confirmPw").value
-
-                if(firstPw != confirmPw)
+                var re = /^[a-zA-Z0-9_-]+@([a-zA-Z0-9]+\.)+(com|cn|net|org)$/;
+                var email = document.getElementById("email").value;
+                
+                var firstPw = document.getElementById("firstPw").value;
+                var confirmPw =  document.getElementById("confirmPw").value;
+                
+                if (!re.test(email))
                 {
-                    alert("Please confirm your password")
-                    return false;
+                  $("#emailError").show();
+                  document.getElementById("email").value = "";
+                  return false;
                 }
                 else
                 {
-                    $("#signUpForm").submit();
-                    return true;
+                    if(firstPw == "" || confirmPw == "")
+                    {
+                        alert("Please enter your password")
+                    }
+                    else
+                    {
+                        if(firstPw != confirmPw)
+                        {
+                            alert("Please confirm your password");
+                            return false;
+                        }
+                        else
+                        {
+                            
+                            $("#signUpForm").submit();
+                            return true;
+                        }
+                    }
+                    
                 }
                 
             }
             function signInBtnAction()
             {
-                var username = document.getElementById("username").value
-                var password =  document.getElementById("password").value
+
                 
-                if(username == "" || password == "")
+                var username = document.getElementById("username").value;
+                var password =  document.getElementById("password").value;
+                
+                if(username == "")
                 {
-                    alert("plase enter your username and password")
+                    $("#loginEmailEmpty").show()
                 }
-                else
+                if(password == "")
                 {
-                    $("#signInForm").submit();
-                    return true;
+                    $("#loginPasswordEmpty").show()
                 }
+                if(username != "" && password != "")
+                {
+                    $.ajax({
+                            url:"ConnServlet",
+                            data:{
+                                username: document.getElementById("username").value,
+                                password: document.getElementById("password").value,
+                                forwardType: "login"
+                            },
+                            type: "POST",
+                            beforeSend: function () {
+                                document.getElementById("backBoxContent").style.display = "none";
+                                $("#loadingLogo").show();
+                                $("#card").flip(true);
+                            },
+                            success:function(correctInfo){
+                                if(correctInfo == "true")
+                                {
+                                    window.location.href = "index.jsp";
+                                }
+                                else
+                                {
+                                    $("#card").flip(false, showBackContent);
+                                    //$("#card").flip(false);
+                                    
+                                }
+                            },
+                            error:function(request){
+                                alert("error");
+                            }
+                       
+                            });
+                   
+                }
+            }
+            function showBackContent()
+            {
+                document.getElementById("backBoxContent").style.display = "block";
+                $("#loadingLogo").hide();
+                $("#loginPasswordWrong").show();
+            }
+            function hideError()
+            {
+                $("#loginPasswordWrong").hide();
+                $("#emailError").hide();
+                $("#loginPasswordEmpty").hide()
+                $("#loginEmailEmpty").hide()
             }
 
         </script>    
@@ -178,17 +227,20 @@
     <body>
         <div id="card" class="cardBox">
             <div id="frontBox" class="front" style="top:70px;">
-                <div class="boxText">
+                <div id="frontBoxContent" class="boxText">
                 <h1 id="signInText">Sign in</h1>
                 <p id="tipText">You can sign in using your Hotelgo account to access our services.</p>
               
                 <p>Email address</p>
-                <br>
+                <br> 
                 <form id="signInForm" action="ConnServlet" method="post" style="position:relative; top:-18px;">
                 <input id="forwardType" name="forwardType" value="login" style="display:none">
-                <input class="loginBar" id="username" name="username">
+                <input class="loginBar" id="username" name="username" oninput="hideError()">
+                <p id="loginEmailEmpty" style="display:none; color:red;">Plase enter your Email address</p>
                 <p>Password</p>
-                <input class="loginBar" type="password" id="password" name="password">  
+                <input class="loginBar" type="password" id="password" name="password" oninput="hideError()"> 
+                <p id="loginPasswordEmpty" style="display:none; color:red;">Plase enter your password</p>
+                <p id="loginPasswordWrong" style="display:none; color:red;">The combination of email address and password you entered does not match.</p>
                 </form>
                 </div>
                
@@ -198,25 +250,31 @@
             </div>
             
              <div id="backBox" class="back" style="top:70px;">
-                <div class="boxText">
+                <div id="backBoxContent" class="boxText">
                 <h1 id="signInText">Fast registration</h1>
                 <p id="tipText">Spend only 30 seconds to create your HotelGo account today</p>
               
                 <p>Email address</p>
+                
                 <br>
                 <form id="signUpForm" action="ConnServlet" method="post" style="position:relative; top:-18px;">
-                <input id="forwardType" value="register" style="display:none">
-                <input class="loginBar" id="email" name="newUsername">
+                <input id="forwardType" name="forwardType" value="register" style="display:none">
+                <input class="loginBar" id="email" name="newUsername" oninput="hideError()">
+                <p id="emailError" style="display:none; color:red;">Plase enter correct Email address<p>
                 <p>Password</p>
                 <input class="loginBar" type="password" id="firstPw" value="" name="newPassword">
                 <p id="confirmText" style="">Confirm Password</p>
                 <input class="loginBar" id="confirmPw" type="password" value="" >
                 </form>
                 
-                </div>
+                
                    <button id="signUpNowBtn" class="signBtn" onclick="signUpBtnAction()"><span id="btnText"class="text">Sign up now</span></button>
-                   <p id="signIntext" class="boxText" style="position: relative; float: top; top: 30px; text-align: center;" >Already have an account? <span style='cursor: pointer; color: #c5464a;' id="goSignInBtn" onclick='goSignInBtnAction()'><b>Sign in</b></span>
-                       
+                   <p id="signInText" class="boxText" style="position: relative; float: top; top: 30px; text-align: center; font-size:100%;" >Already have an account? <span style='cursor: pointer; color: #c5464a;' id="goSignInBtn" onclick='goSignInBtnAction()'><b>Sign in</b></span>
+                </div>
+                <div id="loadingLogo" align="center" style="display:none;">
+                    <img style="position:relative; top:50px;" src="loading.gif" width="100%" height="100%">
+
+                <div>
             </div>
             
         </div>
