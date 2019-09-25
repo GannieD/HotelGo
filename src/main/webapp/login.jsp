@@ -170,10 +170,10 @@
                 <p>Email address</p>
                 <br>
                 <form id="signForm" action="ConnServlet" method="post" style="position:relative; top:-18px;">
-                <input id="forwardType" value="register" style="display:none">
-                <input class="loginBar" id="username" >
+                <input id="forwardType" name="forwardType" value="login" style="display:none">
+                <input class="loginBar" id="username" name="username">
                 <p>Password</p>
-                <input class="loginBar" type="password" id="password">  
+                <input class="loginBar" type="password" id="password" name="password">  
                 </form>
                 </div>
                

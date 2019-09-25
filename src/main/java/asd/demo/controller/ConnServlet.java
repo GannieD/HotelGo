@@ -22,7 +22,7 @@ public class ConnServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String logicType = request.getParameter("forwardType");
-        if(logicType == "register")
+        if (logicType == "register")
         {
             String newUsername = request.getParameter("newUsername");
             String newPassword = request.getParameter("newPassword");
@@ -48,6 +48,19 @@ public class ConnServlet extends HttpServlet {
         }
         if (logicType == "login")
         {
+            String username = request.getParameter("username");
+            String password = request.getParameter("password");
+            response.setContentType("text/html;charset=UTF-8");  
+            HttpSession session = request.getSession(); 
+            User user = connector.checkUser(username, password);
+           
+            String status = (user != null) ? "Login successfully" : "Wrong username or password"; 
+            session.setAttribute("status", status); 
+            if (user != null)
+            {
+                RequestDispatcher rs = request.getRequestDispatcher("index.jsp");
+                rs.forward(request, response);
+            }
             
         }
     }    

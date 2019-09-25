@@ -62,7 +62,18 @@ public class MongoDBConnector {
             MongoDatabase db = client.getDatabase(uri.getDatabase());
             MongoCollection<Document> userlist = db.getCollection("ASD-Demo-app-users");
             Document doc = userlist.find(and(eq("Username", email), eq("Password", password))).first();
-            user = new User((String) doc.get("Name"), (String) doc.get("Username"), (String) doc.get("Password"), (String) doc.get("Phone"));
+            user = new User((String) doc.get("Username"), (String) doc.get("Password"));
+        }
+        return user;
+    }
+    public User checkUser(String email, String password) {
+        MongoClientURI uri = new MongoClientURI("mongodb://" + this.owner + ":" + this.password + "@ds029496.mlab.com:29496/heroku_59pxdn6j");
+        User user;
+        try (MongoClient client = new MongoClient(uri)) {
+            MongoDatabase db = client.getDatabase(uri.getDatabase());
+            MongoCollection<Document> userlist = db.getCollection("users");
+            Document doc = userlist.find(and(eq("username", email), eq("password", password))).first();
+            user = new User( (String) doc.get("username"), (String) doc.get("psssword"));
         }
         return user;
     }
