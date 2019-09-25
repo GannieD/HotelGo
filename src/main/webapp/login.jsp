@@ -74,6 +74,21 @@
                 }
                 
             }
+            function signInBtnAction()
+            {
+                var username = document.getElementById("username").value
+                var password =  document.getElementById("password").value
+                
+                if(username == "" || password == "")
+                {
+                    alert("plase enter your username and password")
+                }
+                else
+                {
+                    $("#signInForm").submit();
+                    return true;
+                }
+            }
 
         </script>    
          <style type="text/css">
@@ -169,7 +184,7 @@
               
                 <p>Email address</p>
                 <br>
-                <form id="signForm" action="ConnServlet" method="post" style="position:relative; top:-18px;">
+                <form id="signInForm" action="ConnServlet" method="post" style="position:relative; top:-18px;">
                 <input id="forwardType" name="forwardType" value="login" style="display:none">
                 <input class="loginBar" id="username" name="username">
                 <p>Password</p>
@@ -177,7 +192,7 @@
                 </form>
                 </div>
                
-                   <button class="signBtn" onclick=""><span id="btnText"class="text">Sign in</span></button>
+                   <button class="signBtn" onclick="signInBtnAction()"><span id="btnText"class="text">Sign in</span></button>
                    <p id="registerText" class="boxText" style="position: relative; float: top; top: 30px; text-align: center;" >Don't have an account yet? <span style="cursor: pointer; color: #c5464a;" onclick="goSignUpBtnAction()" id="goSignUpBtn"><b>Sign up</b></span></p>
          
             </div>
