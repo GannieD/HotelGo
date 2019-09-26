@@ -141,6 +141,12 @@
 
         </script>    
          <style type="text/css">
+             body
+             {
+                background: #f1f5fb;
+                padding: 20px;
+             }
+             
              .cardBox
             {            
                 position: relative;
