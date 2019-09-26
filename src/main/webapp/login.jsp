@@ -48,31 +48,39 @@
                 if (!re.test(email))
                 {
                   $("#emailError").show();
+                  $("#signInText").hide();
                   document.getElementById("email").value = "";
                   return false;
                 }
-                else
+                if(firstPw == "")
                 {
-                    if(firstPw == "" || confirmPw == "")
+                   $("#passwordEmptyError").show();
+                   $("#signInText").hide();
+                }
+                if(confirmPw == "")
+                {
+                   $("#confirmEmptyError").show();
+                   $("#signInText").hide();
+                }
+            
+                    
+                if(firstPw != "" && confirmPw != "" && re.test(email)) 
+                {
+                    if(firstPw != confirmPw)
                     {
-                        alert("Please enter your password")
+                        $("#confirmError").show();
+                        $("#signInText").hide();
+                        return false;
                     }
                     else
                     {
-                        if(firstPw != confirmPw)
-                        {
-                            alert("Please confirm your password");
-                            return false;
-                        }
-                        else
-                        {
-                            
-                            $("#signUpForm").submit();
-                            return true;
-                        }
+
+                        $("#signUpForm").submit();
+                        return true;
                     }
-                    
                 }
+                    
+              
                 
             }
             function signInBtnAction()
@@ -108,6 +116,7 @@
                             success:function(correctInfo){
                                 if(correctInfo == "true")
                                 {
+                                    document.getElementById("checkingText").innerHTML = "Successful"
                                     window.location.href = "index.jsp";
                                 }
                                 else
@@ -137,6 +146,10 @@
                 $("#emailError").hide();
                 $("#loginPasswordEmpty").hide()
                 $("#loginEmailEmpty").hide()
+                $("#confirmError").hide()
+                $("#confirmEmptyError").hide()
+                $("#passwordEmptyError").hide()
+                $("#signInText").show();
             }
 
         </script>    
@@ -234,7 +247,7 @@
         <div id="card" class="cardBox">
             <div id="frontBox" class="front" style="top:70px;">
                 <div id="frontBoxContent" class="boxText">
-                <h1 id="signInText">Sign in</h1>
+                <h1>Sign in</h1>
                 <p id="tipText">You can sign in using your Hotelgo account to access our services.</p>
               
                 <p>Email address</p>
@@ -257,7 +270,7 @@
             
              <div id="backBox" class="back" style="top:70px;">
                 <div id="backBoxContent" class="boxText">
-                <h1 id="signInText">Fast registration</h1>
+                <h1>Fast registration</h1>
                 <p id="tipText">Spend only 30 seconds to create your HotelGo account today</p>
               
                 <p>Email address</p>
@@ -268,9 +281,12 @@
                 <input class="loginBar" id="email" name="newUsername" oninput="hideError()">
                 <p id="emailError" style="display:none; color:red;">Plase enter correct Email address<p>
                 <p>Password</p>
-                <input class="loginBar" type="password" id="firstPw" value="" name="newPassword">
+                <input class="loginBar" type="password" id="firstPw" value="" name="newPassword" oninput="hideError()">
+                <p id="passwordEmptyError" style="display:none; color:red;">Plase enter your new password<p>
                 <p id="confirmText" style="">Confirm Password</p>
-                <input class="loginBar" id="confirmPw" type="password" value="" >
+                <input class="loginBar" id="confirmPw" type="password" value="" oninput="hideError()">
+                <p id="confirmError" style="display:none; color:red;">The passwords you entered did not match, please try again<p>
+                <p id="confirmEmptyError" style="display:none; color:red;">Please confirm your password<p>
                 </form>
                 
                 
@@ -279,7 +295,7 @@
                 </div>
                 <div id="loadingLogo" align="center" style="display:none;">
                     <img style="position:relative; top:50px;" src="loading.gif" width="100%" height="100%">
-
+                    <p id="checkingText" class="boxText" style="text-align:center;">hotelgo.com provides your best experience</p>
                 <div>
             </div>
             
