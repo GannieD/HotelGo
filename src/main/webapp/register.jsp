@@ -9,13 +9,18 @@
         <meta name="format-detection" content="telephone=no">
         <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>HotelGo-Login</title>
+        <title>HotelGo-Register</title>
         <script src="https://code.jquery.com/jquery-2.1.4.min.js">
         </script>
         <script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js">
         </script>
         <script>
-           
+            setTimeout(function() {
+
+            document.getElementById("goSignUpBtn").click();
+
+            }, 500);
+            
             $(function(){
                  $("#card").flip({
                 trigger: 'manual',
@@ -300,7 +305,10 @@
             </div>
             
         </div>
-     
+    <script> 
+        
+        
+    </script> 
     </body>
 
 </html>
