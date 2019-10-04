@@ -12,6 +12,13 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import asd.demo.model.*;
 import java.io.PrintWriter;
+import javax.mail.*;
+
+import javax.activation.*;
+import java.io.*;
+import java.util.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
 /**
  *
  * @author George
@@ -80,6 +87,15 @@ public class ConnServlet extends HttpServlet {
             System.out.println("correctInfo: " + correctInfo);
             
         }
-    }    
+        
+   }
+
+        
+        
+        }
+        
+        
+        
+   
   
-}
+

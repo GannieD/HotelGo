@@ -48,6 +48,8 @@
                     <li><a href="#"><span>contacts</span><span class="triangle"></span></a></li>
                     <li><a class="navbar-brand" onclick="window.location='register.jsp'" data-toggle="tab" id="Register-Tab">Register</a></li>
                     <li>  <a class="navbar-brand" onclick="window.location='login.jsp'" href="" data-toggle="tab" id="Login-Tab">Login</a></li>
+                    <li>  <a class="navbar-brand" onclick="window.location='change.jsp'" href="" data-toggle="tab" id="Change-Tab">Personal</a></li>
+                    
                   </ul>
                 </div><a href="#" class="btn btn-orange-2 btn-lg btn-icon"><span class="icon icon-lg icon-white material-icons-location_on"></span><span>find us</span></a>
               </div>
