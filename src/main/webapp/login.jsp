@@ -139,6 +139,8 @@
                 document.getElementById("backBoxContent").style.display = "block";
                 $("#loadingLogo").hide();
                 $("#loginPasswordWrong").show();
+                $("#forgotText").show();
+                
             }
             function hideError()
             {
@@ -150,6 +152,20 @@
                 $("#confirmEmptyError").hide()
                 $("#passwordEmptyError").hide()
                 $("#signInText").show();
+            }
+            function forgotPasswordAction()
+            {
+                $("#card").flip(true);
+                //$("#fbackBoxContent").hide()
+                document.getElementById("backBoxContent").style.display = "none";
+                $("#fogotPasswordCard").show()
+                
+                
+            }
+            function nextStepBtnAction()
+            {
+                $("signUpForm").hide()
+                $("signUpInformationForm").show()
             }
 
         </script>    
@@ -264,8 +280,9 @@
                 </div>
                
                    <button class="signBtn" onclick="signInBtnAction()"><span id="btnText"class="text">Sign in</span></button>
-                   <p id="registerText" class="boxText" style="position: relative; float: top; top: 30px; text-align: center;" >Don't have an account yet? <span style="cursor: pointer; color: #c5464a;" onclick="goSignUpBtnAction()" id="goSignUpBtn"><b>Sign up</b></span></p>
-         
+                   
+                   <p id="registerText" class="boxText" style="position: relative; top: 30px; text-align: center;" >Don't have an account yet? <span style="cursor: pointer; color: #c5464a;" onclick="goSignUpBtnAction()" id="goSignUpBtn"><b>Sign up</b></span></p>
+                   <p id="forgotText" class="boxText" style="position: relative; top: 30px; text-align: center; cursor: pointer; display: none;" onclick="forgotPasswordAction()">Forget your password?</p>
             </div>
             
              <div id="backBox" class="back" style="top:70px;">
@@ -277,26 +294,43 @@
                 
                 <br>
                 <form id="signUpForm" action="ConnServlet" method="post" style="position:relative; top:-18px;">
-                <input id="forwardType" name="forwardType" value="register" style="display:none">
-                <input class="loginBar" id="email" name="newUsername" oninput="hideError()">
-                <p id="emailError" style="display:none; color:red;">Plase enter correct Email address<p>
-                <p>Password</p>
-                <input class="loginBar" type="password" id="firstPw" value="" name="newPassword" oninput="hideError()">
-                <p id="passwordEmptyError" style="display:none; color:red;">Plase enter your new password<p>
-                <p id="confirmText" style="">Confirm Password</p>
-                <input class="loginBar" id="confirmPw" type="password" value="" oninput="hideError()">
-                <p id="confirmError" style="display:none; color:red;">The passwords you entered did not match, please try again<p>
-                <p id="confirmEmptyError" style="display:none; color:red;">Please confirm your password<p>
+                    <input id="forwardType" name="forwardType" value="register" style="display:none">
+                    <input class="loginBar" id="email" name="newUsername" oninput="hideError()">
+                    <p id="emailError" style="display:none; color:red;">Plase enter correct Email address<p>
+                    <p>Password</p>
+                    <input class="loginBar" type="password" id="firstPw" value="" name="newPassword" oninput="hideError()">
+                    <p id="passwordEmptyError" style="display:none; color:red;">Plase enter your new password<p>
+                    <p id="confirmText" style="">Confirm Password</p>
+                    <input class="loginBar" id="confirmPw" type="password" value="" oninput="hideError()">
+                    <p id="confirmError" style="display:none; color:red;">The passwords you entered did not match, please try again<p>
+                    <p id="confirmEmptyError" style="display:none; color:red;">Please confirm your password<p>
+                </form>
+                <form id="signUpInformationForm" style="display:none" >
+                    <p>First name</p>
+                    <input class="loginBar" type="password" id="firstName" value="" name="firstName" oninput="hideError()">
+                    <p>Last name</p>
+                    <input class="loginBar" type="password" id="lastName" value="" name="lastName" oninput="hideError()">
+                    <p>Contact number</p>
+                    <input class="loginBar" type="password" id="phone" value="" name="phone" oninput="hideError()">
                 </form>
                 
                 
-                   <button id="signUpNowBtn" class="signBtn" onclick="signUpBtnAction()"><span id="btnText"class="text">Sign up now</span></button>
+                   <button id="signUpNowBtn" class="signBtn" onclick="nextStepBtnAction()"><span id="btnText"class="text">Next step</span></button>
                    <p id="signInText" class="boxText" style="position: relative; float: top; top: 30px; text-align: center; font-size:100%;" >Already have an account? <span style='cursor: pointer; color: #c5464a;' id="goSignInBtn" onclick='goSignInBtnAction()'><b>Sign in</b></span>
                 </div>
                 <div id="loadingLogo" align="center" style="display:none;">
                     <img style="position:relative; top:50px;" src="loading.gif" width="100%" height="100%">
                     <p id="checkingText" class="boxText" style="text-align:center;">hotelgo.com provides your best experience</p>
-                <div>
+                </div>
+                <div id="fogotPasswordCard" class="boxText" align="center" style="display:none;">   
+                    <h1>Password recover</h1>
+                    <p id="tipText">Quickly find back your password</p>
+                    <p>Email address</p>
+                    <form id="forgotPasswordForm" action="ConnServlet" method="post" style="position:relative; top:-18px;">
+                    <input id="forwardType" name="forwardType" value="forgotPassword" style="display:none">
+                    <input id="forgotEmail" style="" class="loginBar"  name="username" oninput="hideError()">
+                    </form>
+                </div>
             </div>
             
         </div>
