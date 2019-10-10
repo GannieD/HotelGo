@@ -35,7 +35,11 @@ public class ConnServlet extends HttpServlet {
         {
             String newUsername = request.getParameter("newUsername");
             String newPassword = request.getParameter("newPassword");
-
+            
+            String firstName = request.getParameter("firstName");
+            String lastName = request.getParameter("lastName");
+            String phone = request.getParameter("phone");
+            
             connector = new MongoDBConnector("Christian", "Abclzm123"); 
             //User newUser = new User("Christian", newUsername, newPassword, 1234567);
             //connector.add(newUser);
@@ -48,7 +52,7 @@ public class ConnServlet extends HttpServlet {
             //session.setAttribute("adminpassword", adminpass);
             System.out.println("MongoDB Atlas status");
             System.out.println(status);
-            connector.addUser(newUsername, newPassword);
+            connector.addUser(newUsername, newPassword, firstName, lastName, phone);
             connector.showTable();
 
 

@@ -34,12 +34,12 @@ public class MongoDBConnector {
           return db;
        }
     
-    public void addUser(String username, String password) {
+    public void addUser(String username, String password, String firstName, String lastName, String phone) {
         MongoClientURI uri = new MongoClientURI("mongodb+srv://" + this.owner + ":" + this.password + "@cluster0-fmqy8.gcp.mongodb.net/test?retryWrites=true&w=majority");
         try (MongoClient client = new MongoClient(uri)) {
             MongoDatabase db = client.getDatabase("hotel_go");
             MongoCollection<Document> collection = db.getCollection("users");
-            Document doc = new Document("username", username).append("password", password);
+            Document doc = new Document("username", username).append("password", password).append("firstName", firstName).append("lastName", lastName).append("phone", phone);
             collection.insertOne(doc);
         }
     }

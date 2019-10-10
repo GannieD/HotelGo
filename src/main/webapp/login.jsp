@@ -36,52 +36,59 @@
             {
                 $("#card").flip(false);
             }
+            
+            var userFilledAll = false
             function signUpBtnAction()
             {
-     
-                var re = /^[a-zA-Z0-9_-]+@([a-zA-Z0-9]+\.)+(com|cn|net|org)$/;
-                var email = document.getElementById("email").value;
-                
-                var firstPw = document.getElementById("firstPw").value;
-                var confirmPw =  document.getElementById("confirmPw").value;
-                
-                if (!re.test(email))
-                {
-                  $("#emailError").show();
-                  $("#signInText").hide();
-                  document.getElementById("email").value = "";
-                  return false;
-                }
-                if(firstPw == "")
-                {
-                   $("#passwordEmptyError").show();
-                   $("#signInText").hide();
-                }
-                if(confirmPw == "")
-                {
-                   $("#confirmEmptyError").show();
-                   $("#signInText").hide();
-                }
-            
-                    
-                if(firstPw != "" && confirmPw != "" && re.test(email)) 
-                {
-                    if(firstPw != confirmPw)
-                    {
-                        $("#confirmError").show();
-                        $("#signInText").hide();
-                        return false;
-                    }
-                    else
-                    {
+               if(userFilledAll == false)
+               {
+                    var re = /^[a-zA-Z0-9_-]+@([a-zA-Z0-9]+\.)+(com|cn|net|org)$/;
+                    var email = document.getElementById("email").value;
 
-                        $("#signUpForm").submit();
-                        return true;
+                    var firstPw = document.getElementById("firstPw").value;
+                    var confirmPw =  document.getElementById("confirmPw").value;
+
+                    if (!re.test(email))
+                    {
+                      $("#emailError").show();
+                      $("#signInText").hide();
+                      document.getElementById("email").value = "";
+                      return false;
                     }
+                    if(firstPw == "")
+                    {
+                       $("#passwordEmptyError").show();
+                       $("#signInText").hide();
+                    }
+                    if(confirmPw == "")
+                    {
+                       $("#confirmEmptyError").show();
+                       $("#signInText").hide();
+                    }
+
+
+                    if(firstPw != "" && confirmPw != "" && re.test(email)) 
+                    {
+                        if(firstPw != confirmPw)
+                        {
+                            $("#confirmError").show();
+                            $("#signInText").hide();
+                            return false;
+                        }
+                        else
+                        {
+                            $("#passwordDiv").slideUp()
+                            $("#infoDiv").slideDown()
+                            document.getElementById("nextStepBtnText").innerHTML = "Sign up now"
+                            userFilledAll = true
+                            return true;
+                        }
+                    }
+                } 
+                else
+                {
+                    $("#signUpForm").submit();
                 }
-                    
-              
-                
             }
             function signInBtnAction()
             {
@@ -164,8 +171,9 @@
             }
             function nextStepBtnAction()
             {
-                $("signUpForm").hide()
-                $("signUpInformationForm").show()
+                //document.getElementById("signUpForm").style.display = "none"
+                //document.getElementById("signUpInformationForm").style.display = "block"
+                
             }
 
         </script>    
@@ -290,32 +298,36 @@
                 <h1>Fast registration</h1>
                 <p id="tipText">Spend only 30 seconds to create your HotelGo account today</p>
               
-                <p>Email address</p>
+                
                 
                 <br>
                 <form id="signUpForm" action="ConnServlet" method="post" style="position:relative; top:-18px;">
-                    <input id="forwardType" name="forwardType" value="register" style="display:none">
-                    <input class="loginBar" id="email" name="newUsername" oninput="hideError()">
-                    <p id="emailError" style="display:none; color:red;">Plase enter correct Email address<p>
-                    <p>Password</p>
-                    <input class="loginBar" type="password" id="firstPw" value="" name="newPassword" oninput="hideError()">
-                    <p id="passwordEmptyError" style="display:none; color:red;">Plase enter your new password<p>
-                    <p id="confirmText" style="">Confirm Password</p>
-                    <input class="loginBar" id="confirmPw" type="password" value="" oninput="hideError()">
-                    <p id="confirmError" style="display:none; color:red;">The passwords you entered did not match, please try again<p>
-                    <p id="confirmEmptyError" style="display:none; color:red;">Please confirm your password<p>
-                </form>
-                <form id="signUpInformationForm" style="display:none" >
-                    <p>First name</p>
-                    <input class="loginBar" type="password" id="firstName" value="" name="firstName" oninput="hideError()">
-                    <p>Last name</p>
-                    <input class="loginBar" type="password" id="lastName" value="" name="lastName" oninput="hideError()">
-                    <p>Contact number</p>
-                    <input class="loginBar" type="password" id="phone" value="" name="phone" oninput="hideError()">
+                    <div id="passwordDiv">
+                        <p>Email address</p>
+                        <input id="forwardType" name="forwardType" value="register" style="display:none">
+                        <input class="loginBar" id="email" name="newUsername" oninput="hideError()">
+                        <p id="emailError" style="display:none; color:red;">Plase enter correct Email address<p>
+                        <p>Password</p>
+                        <input class="loginBar" type="password" id="firstPw" value="" name="newPassword" oninput="hideError()">
+                        <p id="passwordEmptyError" style="display:none; color:red;">Plase enter your new password<p>
+                        <p id="confirmText" style="">Confirm Password</p>
+                        <input class="loginBar" id="confirmPw" type="password" value="" oninput="hideError()">
+                        <p id="confirmError" style="display:none; color:red;">The passwords you entered did not match, please try again<p>
+                        <p id="confirmEmptyError" style="display:none; color:red;">Please confirm your password<p>
+                    </div>
+                    <div id="infoDiv" style="display:none" >
+                        <p>First name</p>
+                        <input class="loginBar" id="firstName" value="" name="firstName" oninput="hideError()">
+                        <p>Last name</p>
+                        <input class="loginBar" id="lastName" value="" name="lastName" oninput="hideError()">
+                        <p>Contact number</p>
+                        <input class="loginBar" id="phone" value="" name="phone" oninput="hideError()">
+                    </div>
+                
                 </form>
                 
                 
-                   <button id="signUpNowBtn" class="signBtn" onclick="nextStepBtnAction()"><span id="btnText"class="text">Next step</span></button>
+                   <button id="signUpNowBtn" class="signBtn" onclick="signUpBtnAction()"><span id="nextStepBtnText"class="text">Next step</span></button>
                    <p id="signInText" class="boxText" style="position: relative; float: top; top: 30px; text-align: center; font-size:100%;" >Already have an account? <span style='cursor: pointer; color: #c5464a;' id="goSignInBtn" onclick='goSignInBtnAction()'><b>Sign in</b></span>
                 </div>
                 <div id="loadingLogo" align="center" style="display:none;">
