@@ -174,7 +174,7 @@
                     <h4> Hilton Sydney  </h4>
                     <p>3 nights from</p>
                     <div class="h4 price">$1,305</div>
-                    <p>Book by: 15-09-2019</p><a href="orderplacing.jsp" data-text="see more" class="btn btn-winona btn-transparent btn-xs">see more</a>
+                    <p>Book by: 15-09-2019</p><a href="details.jsp" data-text="see more" class="btn btn-winona btn-transparent btn-xs">see more</a>
                   </div>
                 </div>
               </div>
