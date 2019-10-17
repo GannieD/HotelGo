@@ -255,8 +255,8 @@
         <div id="card" class="cardBox">
             <div id="frontBox" class="front" style="top:70px;">
                 <div id="frontBoxContent" class="boxText">
-                <h1>Update password</h1>
-                <p id="tipText">You can change your password.</p>
+                <h1>Update personal info</h1>
+                <p id="tipText">You can change your personal info.</p>
               
                 <p>Email address</p>
                 <br> 
@@ -279,7 +279,7 @@
              <div id="backBox" class="back" style="top:70px;">
                 <div id="backBoxContent" class="boxText">
                 <h1>Update password</h1>
-                <p id="tipText">You can change your password here.</p>
+                <p id="tipText">You can change your personal info here.</p>
               
                 <p>Email address</p>
                 
