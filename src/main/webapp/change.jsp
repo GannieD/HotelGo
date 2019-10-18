@@ -142,6 +142,15 @@
                    
                 }
             }
+            
+             
+            function goback()
+            
+    {
+        window.location.href = "index.jsp";
+        
+        
+    }
             function showBackContent()
             {
                 document.getElementById("backBoxContent").style.display = "block";
@@ -252,42 +261,20 @@
     %>
     
     <body>
-        <div id="card" class="cardBox">
-            <div id="frontBox" class="front" style="top:70px;">
-                <div id="frontBoxContent" class="boxText">
-                <h1>Update personal info</h1>
-                <p id="tipText">You can change your personal info.</p>
-              
-                <p>Email address</p>
-                <br> 
-                <form id="signInForm" action="ConnServlet" method="post" style="position:relative; top:-18px;">
-                <input id="forwardType" name="forwardType" value="login" style="display:none">
-                <input class="loginBar" id="username" name="username" oninput="hideError()">
-                <p id="loginEmailEmpty" style="display:none; color:red;">Plase enter your Email address</p>
-                <p>Password</p>
-                <input class="loginBar" type="password" id="password" name="password" oninput="hideError()"> 
-                <p id="loginPasswordEmpty" style="display:none; color:red;">Plase enter your password</p>
-                <p id="loginPasswordWrong" style="display:none; color:red;">The combination of email address and password you entered does not match.</p>
-                </form>
-                </div>
-               
-                   <button class="signBtn" onclick="signInBtnAction()"><span id="btnText"class="text">Sign in</span></button>
-                   <p id="registerText" class="boxText" style="position: relative; float: top; top: 30px; text-align: center;" >Don't have an account yet? <span style="cursor: pointer; color: #c5464a;" onclick="goSignUpBtnAction()" id="goSignUpBtn"><b>Sign up</b></span></p>
-         
-            </div>
+        
+                 
             
              <div id="backBox" class="back" style="top:70px;">
                 <div id="backBoxContent" class="boxText">
                 <h1>Update password</h1>
                 <p id="tipText">You can change your personal info here.</p>
               
-                <p>Email address</p>
+               
                 
                 <br>
                 <form id="signUpForm" action="ConnServlet" method="post" style="position:relative; top:-18px;">
                 <input id="forwardType" name="forwardType" value="register" style="display:none">
-                <input class="loginBar" id="email" name="newUsername" oninput="hideError()">
-                <p id="emailError" style="display:none; color:red;">Plase enter correct Email address<p>
+             
                 <p>Password</p>
                 <input class="loginBar" type="password" id="firstPw" value="" name="newPassword" oninput="hideError()">
                 <p id="passwordEmptyError" style="display:none; color:red;">Plase enter your new password<p>
@@ -295,10 +282,24 @@
                 <input class="loginBar" id="confirmPw" type="password" value="" oninput="hideError()">
                 <p id="confirmError" style="display:none; color:red;">The passwords you entered did not match, please try again<p>
                 <p id="confirmEmptyError" style="display:none; color:red;">Please confirm your password<p>
+               <p>First name</p>
+               <input class="loginBar" type="firstname" id="firstPw" value="" name="newPassword" oninput="hideError()">
+                <p id="passwordEmptyError" style="display:none; color:red;">Plase enter your new name<p>
+                
+               <p>Last name</p>
+               <input class="loginBar" type="lastname" id="firstPw" value="" name="newPassword" oninput="hideError()">
+                <p id="passwordEmptyError" style="display:none; color:red;">Plase enter your new name<p>
+                
+               <p>Phone</p>
+               <input class="loginBar" type="phone" id="firstPw" value="" name="newPassword" oninput="hideError()">
+                <p id="passwordEmptyError" style="display:none; color:red;">Plase enter your new phone<p>
+                    
+                
+                
                 </form>
                 
                 
-                   <button id="signUpNowBtn" class="signBtn" onclick="signUpBtnAction()"><span id="btnText"class="text">update now</span></button>
+                   <button id="signUpNowBtn" class="signBtn" onclick="goback()"><span id="btnText"class="text">update now</span></button>
                    <p id="signInText" class="boxText" style="position: relative; float: top; top: 30px; text-align: center; font-size:100%;" >Already have an account? <span style='cursor: pointer; color: #c5464a;' id="goSignInBtn" onclick='goSignInBtnAction()'><b>Sign in</b></span>
                 </div>
                 <div id="loadingLogo" align="center" style="display:none;">
